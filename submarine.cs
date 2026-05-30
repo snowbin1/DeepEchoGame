@@ -1,11 +1,14 @@
 public class Submarine
 {
-    public int hp = 100;
-    public int power = 100;
+    private int hp = 100;
+    private int power = 300; 
 
-    public const int scan = 3;
-    public const int light = 8;
-    public const int sonic = 10;
+    public const int scan = 5;
+    public const int light = 10;
+    public const int sonic = 13;
+
+    public int Hp { get { return hp; } }
+    public int Power { get { return power; } }
 
     public bool UsePower(int amount)
     {
@@ -19,11 +22,7 @@ public class Submarine
 
     public void damage(int amount)
     {
-        hp -= amount;
-        if (hp < 0)
-        {
-            hp = 0;
-        }
+        hp = Math.Max(0, hp - amount);
     }
 
     public bool destroy()
